@@ -6,9 +6,16 @@ import { AppComponent } from './app.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AboutUsComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    AboutUsComponent,
+    HomeComponent,
+    ContactUsComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
