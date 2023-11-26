@@ -1,0 +1,16 @@
+.logo-container {
+    text-align: center;
+    margin-bottom: 15px;
+    /* Adjusts spacing between the logo and the navbar */
+}
+
+.logo-container img {
+    width: 64px;
+    height: auto;
+    /* Maintains the aspect ratio */
+}
+
+
+.navbar-nav .nav-link {
+    border: none;
+}
