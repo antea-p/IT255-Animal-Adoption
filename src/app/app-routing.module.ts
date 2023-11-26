@@ -1,23 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: AppComponent,
-  //   title: 'Home page',
-  // },
-
+  {
+    path: '',
+    component: HomeComponent,
+    title: 'Home page',
+  },
   {
     path: 'about-us',
     component: AboutUsComponent,
     title: 'About Us page',
   },
 ];
-
-export default routes;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
