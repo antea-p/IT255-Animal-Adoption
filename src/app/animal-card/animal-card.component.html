@@ -1,0 +1,8 @@
+<div class="card">
+    <img [src]="animal.image" class="card-img-top" [alt]="animal.name">
+    <div class="card-body">
+        <h5 class="card-title">{{ animal.name }}</h5>
+        <p class="card-text"> {{ animal.price | currency }}</p>
+        <button class="btn btn-primary">Learn More...</button>
+    </div>
+</div>
