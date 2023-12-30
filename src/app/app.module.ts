@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { AnimalCardComponent } from './animal-card/animal-card.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { AnimalCardComponent } from './components/animal-card/animal-card.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -23,4 +23,4 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
