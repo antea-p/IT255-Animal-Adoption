@@ -1,0 +1,14 @@
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.invalid-feedback {
+    display: block;
+    color: #dc3545;
+}

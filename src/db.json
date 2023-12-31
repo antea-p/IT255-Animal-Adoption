@@ -7,7 +7,7 @@
       "age": "2 years",
       "speciesName": "otter",
       "description": "Luna loves playing with pebbles and is very sociable.",
-      "price": 200.0
+      "price": 200
     },
     {
       "id": 2,
@@ -25,7 +25,7 @@
       "age": "3 years",
       "speciesName": "red panda",
       "description": "Jasper is curious and loves climbing trees.",
-      "price": 300.0
+      "price": 300
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "age": "1 year",
       "speciesName": "snow leopard",
       "description": "Misty is elusive and loves snowy landscapes.",
-      "price": 250.0
+      "price": 250
     },
     {
       "id": 5,
@@ -43,7 +43,19 @@
       "age": "4 years",
       "speciesName": "lion",
       "description": "Leo, the king of his pride, is majestic and brave.",
-      "price": 500.0
+      "price": 500
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@gmail.com",
+      "password": "1234"
+    },
+    {
+      "email": "test@a.com",
+      "password": "123456",
+      "id": 2
     }
   ]
 }
