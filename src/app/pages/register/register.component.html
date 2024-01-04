@@ -1,6 +1,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="container mt-4">
     <h3 class="mb-3 text-center">Create Your Account</h3>
 
+    <!-- TODO: refaktor da koristi gettere umjesto registerForm.get('email')?.touched itd. -->
     <div class="mb-3">
         <label for="email" class="form-label">Email</label>
         <input type="email" class="form-control" id="email" formControlName="email" required>
@@ -16,7 +17,8 @@
         <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid"
             class="invalid-feedback">
             <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</div>
-            <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters
+            <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least {{ minPasswordLen
+                }} characters
                 long.
             </div>
         </div>

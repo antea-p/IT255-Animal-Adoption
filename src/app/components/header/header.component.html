@@ -9,6 +9,8 @@
         <a class="nav-item nav-link active" href="#">Item 1 <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="#">Item 1</a>
         <a class="nav-item nav-link" href="#">Item 1</a>
-        <a class="nav-item nav-link" href="#">Login</a>
+        <a *ngIf="!userService.isLoggedIn()" class="nav-item nav-link" href="#">Login</a>
+        <a *ngIf="!userService.isLoggedIn()" class="nav-item nav-link" href="#">Register</a>
+        <a *ngIf="userService.isLoggedIn()" class="nav-item nav-link" href="#" (click)="userService.logout()">Logout</a>
     </div>
 </nav>
