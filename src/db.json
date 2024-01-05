@@ -51,40 +51,43 @@
       "id": 1,
       "email": "test@gmail.com",
       "password": "1234"
-    },
-    {
-      "email": "test@a.com",
-      "password": "123456",
-      "id": 2
     }
   ],
   "adoptions": [
     {
+      "name": "a",
+      "surname": "aa1",
+      "phone": "1",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahamas",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "animalId": 4,
+      "id": 1
+    },
+    {
       "name": "aa",
-      "surname": "a",
+      "surname": "1",
       "phone": "1234",
       "street": "a",
       "city": "a",
       "zipcode": "12345",
-      "country": "Australia",
-      "paymentOption": "creditCard",
-      "consent": true,
-      "personalNote": "",
-      "id": 1
-    },
-    {
-      "name": "a",
-      "surname": "a",
-      "phone": "123",
-      "street": "a",
-      "city": "a",
-      "zipcode": "12435",
-      "country": "Bahrain",
+      "country": "Bahamas",
       "paymentOption": "paypal",
       "consent": true,
       "personalNote": "",
+      "animalId": 1,
       "id": 2
     }
   ],
-  "usersAdoptions": []
+  "usersAdoptions": [
+    {
+      "adoptionId": 1,
+      "userId": 1,
+      "id": 1
+    }
+  ]
 }

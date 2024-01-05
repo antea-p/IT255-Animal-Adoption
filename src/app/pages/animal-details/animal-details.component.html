@@ -8,6 +8,6 @@
             <p class="card-text">{{ animal.description }}</p>
             <p class="card-text"><strong>Price:</strong> ${{ animal.price }}</p>
         </div>
-        <app-adoption-form></app-adoption-form>
+        <app-adoption-form [animalId]="animalId"></app-adoption-form>
     </div>
 </div>

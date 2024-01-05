@@ -56,7 +56,6 @@ const routes: Routes = [
     path: 'success',
     component: SuccessComponent,
     title: 'Success!',
-    canActivate: [AdoptionGuard]
   },
 ];
 

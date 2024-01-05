@@ -13,6 +13,7 @@ export class AdoptionGuard implements CanActivate {
     if (this.adoptionService.adoptedAnimal) {
       return true;
     } else {
+      console.log("Didn't detect adopted animal!");
       this.router.navigate(['/home']);
       return false;
     }

@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Adoption } from 'src/app/models/adoption.model';
 import { AdoptionService } from 'src/app/services/adoption.service';
 import { CountryService } from 'src/app/services/country.service';
-import { UserService } from 'src/app/services/user.service';
+import { Animal } from '../../models/animal';
 
 @Component({
   selector: 'app-adoption-form',
@@ -16,12 +16,12 @@ export class AdoptionFormComponent {
   adoptionForm: FormGroup;
   countries$: Observable<string[]>;
   adoptionErrorMessage: string = '';
+  @Input() animalId: number;
 
   constructor(
     private fb: FormBuilder,
     private countryService: CountryService,
     private adoptionService: AdoptionService,
-    private userService: UserService,
     private router: Router
   ) { }
 
@@ -39,6 +39,7 @@ export class AdoptionFormComponent {
       personalNote: ['']
     });
     this.countries$ = this.countryService.getCountries();
+    console.log(`CHILD animalId: ${this.animalId}`)
   }
 
   get name() {
@@ -79,23 +80,27 @@ export class AdoptionFormComponent {
 
   onSubmit(): void {
     this.adoptionForm.markAllAsTouched();
+
     if (this.adoptionForm.valid) {
-      const adoptionData: Adoption = {
-        ...this.adoptionForm.value
-        // animalId: 1, // TODO: get animal's ID
-        // userId: 1 // TODO: Get the current user's ID
+      const adoption: Adoption = {
+        ...this.adoptionForm.value,
+        animalId: this.animalId,
       };
-      this.adoptionService.submitAdoption(adoptionData).subscribe({
-        next: () => this.router.navigate(['/success']),
+      this.adoptionService.submitAdoption(adoption).subscribe({
+        next: (adoption) => {
+          if (adoption) {
+            this.router.navigate(['/success'])
+          } else {
+            this.adoptionErrorMessage = "Please review the highlighted fields and provide the necessary details.";
+            console.log(this.adoptionErrorMessage);
+          }
+        },
         error: (err) => {
           console.error('Error during adoption submission:', err);
           this.adoptionErrorMessage = "Failed to submit adoption. Please try again later.";
         }
       });
-    } else {
-      this.adoptionErrorMessage = "Please review the highlighted fields and provide the necessary details.";
     }
   }
-
 
 }

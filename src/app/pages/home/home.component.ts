@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.animalService.getAnimals().subscribe((data) => {
-      console.log(data); // Check if data is being received
+      // console.log(data); // Check if data is being received
       this.animals = data;
     });
   }

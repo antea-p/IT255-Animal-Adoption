@@ -11,6 +11,7 @@ import { AnimalService } from 'src/app/services/animal.service';
 })
 export class AnimalDetailsComponent implements OnInit {
   animal$: Observable<Animal>;
+  animalId: number;
 
   constructor(private animalService: AnimalService, private route: ActivatedRoute) { }
 
@@ -20,6 +21,8 @@ export class AnimalDetailsComponent implements OnInit {
       switchMap((params: ParamMap) => {
         const id = params.get('id');
         if (id) {
+          this.animalId = +id;
+          console.log(`PARENT animalId: ${this.animalId}`)
           return this.animalService.getAnimalById(+id);
         } else {
           return throwError(() => new Error('Invalid animal ID'));
