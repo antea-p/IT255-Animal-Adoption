@@ -24,6 +24,10 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
+    // Očisti bilo kakav mogući redirectUrl, kako bi se spriječilo neželjeno preusmjeravanje
+    if (this.userService.redirectUrl) {
+      this.userService.redirectUrl = null;
+    }
   }
 
   get email() {
@@ -40,23 +44,27 @@ export class LoginComponent {
         this.loginForm.value.email,
         this.loginForm.value.password
       );
-      this.userService.login(user).subscribe(
-        user => {
-          if (!user) {
+      this.userService.login(user).subscribe({
+        next: (user) => {
+          if (user) {
+            this.userService.setCurrentUser(user);
+            // Ako je korisnik preusmjeren sa stranice /detail/:id, bit će preusmjeren natrag
+            // na tu stranicu, inače će biti preusmjeren na početnu stranicu
+            const redirect = this.userService.redirectUrl ? this.userService.redirectUrl : '/home';
+            this.router.navigate([redirect]);
+            this.userService.redirectUrl = null; // Resetiranje redirectUrl-a
+          } else {
             this.loginErrorMessage = 'Incorrect email or password.';
             console.log(this.loginErrorMessage);
-          } else {
-            console.log("Success!");
-            this.userService.setCurrentUser(user);
-            this.router.navigate(['/home']);
           }
         },
-        error => {
+        error: (error) => {
           this.loginErrorMessage = 'An error occurred during login. Please try again later.';
           console.log(error);
         }
-      );
+      });
     }
   }
+
 
 }

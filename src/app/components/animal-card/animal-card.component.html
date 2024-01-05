@@ -3,6 +3,6 @@
     <div class="card-body">
         <h5 class="card-title">{{ animal.name }}</h5>
         <p class="card-text"> {{ animal.price | currency }}</p>
-        <button class="btn btn-primary">Learn More...</button>
+        <a [routerLink]="['/details', animal.id]" class="btn btn-primary">Learn More...</a>
     </div>
 </div>

@@ -1,0 +1,13 @@
+<div *ngIf="animal$ | async as animal" class="container mt-4">
+    <div class="card">
+        <img [src]="animal.image" class="card-img-top" alt="Picture of {{ animal.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ animal.name }}</h5>
+            <p class="card-text"><strong>Age:</strong> {{ animal.age }}</p>
+            <p class="card-text"><strong>Species:</strong> {{ animal.speciesName }}</p>
+            <p class="card-text">{{ animal.description }}</p>
+            <p class="card-text"><strong>Price:</strong> ${{ animal.price }}</p>
+        </div>
+        <app-adoption-form></app-adoption-form>
+    </div>
+</div>

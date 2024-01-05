@@ -1,0 +1,97 @@
+<form [formGroup]="adoptionForm" (ngSubmit)="onSubmit()" class="container mt-4">
+    <h3 class="mb-3 text-center">Adopt Me!</h3>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+        <div *ngIf="name?.touched && name?.invalid" class="invalid-feedback">
+            <div *ngIf="name?.errors?.['required']">Name is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="surname" class="form-label">Surname</label>
+        <input type="text" class="form-control" id="surname" formControlName="surname" required>
+        <div *ngIf="surname?.touched && surname?.invalid" class="invalid-feedback">
+            <div *ngIf="surname?.errors?.['required']">Surname is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="phone" class="form-label">Phone</label>
+        <input type="tel" class="form-control" id="phone" formControlName="phone" required>
+        <div *ngIf="phone?.touched && phone?.invalid" class="invalid-feedback">
+            <div *ngIf="phone?.errors?.['required']">Phone number is required.</div>
+            <div *ngIf="phone?.errors?.['pattern']">Please enter a valid phone number.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="street" class="form-label">Street Address</label>
+        <input type="text" class="form-control" id="street" formControlName="street" required>
+        <div *ngIf="street?.touched && street?.invalid" class="invalid-feedback">
+            <div *ngIf="street?.errors?.['required']">Street address is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city" required>
+        <div *ngIf="city?.touched && city?.invalid" class="invalid-feedback">
+            <div *ngIf="city?.errors?.['required']">City is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="zipcode" class="form-label">Zipcode</label>
+        <input type="text" class="form-control" id="zipcode" formControlName="zipcode" required>
+        <div *ngIf="zipcode?.touched && zipcode?.invalid" class="invalid-feedback">
+            <div *ngIf="zipcode?.errors?.['required']">Zipcode is required.</div>
+            <div *ngIf="zipcode?.errors?.['pattern']">Zipcode must have exactly 5 digits.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <select class="form-control" id="country" formControlName="country" required>
+            <option *ngFor="let country of countries$ | async" [value]="country">{{ country }}</option>
+        </select>
+        <div *ngIf="country?.touched && country?.invalid" class="invalid-feedback">
+            <div *ngIf="country?.errors?.['required']">Country selection is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="paymentOption" class="form-label">Payment Option</label>
+        <select class="form-control" id="paymentOption" formControlName="paymentOption" required>
+            <option value="">Select Payment Method</option>
+            <option value="creditCard">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="bankTransfer">Bank Transfer</option>
+        </select>
+        <div *ngIf="paymentOption?.touched && paymentOption?.invalid" class="invalid-feedback">
+            <div *ngIf="paymentOption?.errors?.['required']">A payment option is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="personalNote" class="form-label">Personal Note (Optional)</label>
+        <textarea class="form-control" id="personalNote" formControlName="personalNote"></textarea>
+    </div>
+
+
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="consent" formControlName="consent" required>
+        <label class="form-check-label" for="consent">I agree to the terms and conditions of the adoption</label>
+        <div *ngIf="consent?.touched && consent?.invalid" class="invalid-feedback">
+            <div *ngIf="consent?.errors?.['required']">You must agree before submitting.</div>
+        </div>
+    </div>
+
+
+    <div class="mb-3">
+        <div *ngIf="adoptionErrorMessage" class="invalid-feedback">
+            {{ adoptionErrorMessage }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

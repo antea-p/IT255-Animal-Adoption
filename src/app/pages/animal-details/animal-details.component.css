@@ -1,0 +1,11 @@
+/* Style for the image */
+.card-img-top {
+    width: 25%;
+    /* Make the image responsive within the card */
+    height: auto;
+    object-fit: contain;
+    margin-left: auto;
+    /* Center the image horizontally */
+    margin-right: auto;
+    /* Center the image horizontally */
+}

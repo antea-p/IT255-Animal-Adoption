@@ -13,9 +13,9 @@
         <input type="password" class="form-control" id="password" formControlName="password" required>
         <div *ngIf="password?.touched && password?.invalid" class="invalid-feedback">
             <div *ngIf="password?.errors?.['required']">Password is required.</div>
-            <!-- TODO: invalid pasword message -->
         </div>
     </div>
+    <!-- TODO: more pronounced div, maybe red background -->
     <div class="mb-3">
         <div *ngIf="loginErrorMessage" class="invalid-feedback">
             {{ loginErrorMessage }}

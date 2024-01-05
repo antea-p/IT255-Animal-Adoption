@@ -6,6 +6,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth.guard';
+import { AnimalDetailsComponent } from './pages/animal-details/animal-details.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,12 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     title: 'Home page',
-    canActivate: [AuthGuard]
+  },
+  {
+    path: 'details/:id',
+    component: AnimalDetailsComponent,
+    title: 'Details',
+    canActivate: [AuthGuard],
   },
   {
     path: 'about-us',

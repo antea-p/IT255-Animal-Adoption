@@ -7,6 +7,7 @@ import { map, catchError, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  redirectUrl: string | null = null;
   private apiUrl = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) { }

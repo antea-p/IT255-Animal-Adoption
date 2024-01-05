@@ -9,9 +9,14 @@ import { Animal } from '../models/animal';
 export class AnimalService {
   private apiUrl = 'http://localhost:3000/animals';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAnimals(): Observable<Animal[]> {
     return this.http.get<Animal[]>(this.apiUrl);
   }
+
+  getAnimalById(id: number): Observable<Animal> {
+    return this.http.get<Animal>(`${this.apiUrl}/${id}`);
+  }
+
 }

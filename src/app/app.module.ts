@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
 import { AnimalService } from './services/animal.service';
 import { LoginComponent } from './pages/login/login.component';
+import { AnimalDetailsComponent } from './pages/animal-details/animal-details.component';
+import { AdoptionFormComponent } from './components/adoption-form/adoption-form.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { LoginComponent } from './pages/login/login.component';
     AnimalCardComponent,
     RegisterComponent,
     LoginComponent,
+    AnimalDetailsComponent,
+    AdoptionFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [UserService, AnimalService],
