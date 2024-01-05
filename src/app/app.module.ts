@@ -16,6 +16,8 @@ import { AnimalService } from './services/animal.service';
 import { LoginComponent } from './pages/login/login.component';
 import { AnimalDetailsComponent } from './pages/animal-details/animal-details.component';
 import { AdoptionFormComponent } from './components/adoption-form/adoption-form.component';
+import { SuccessComponent } from './pages/success/success.component';
+import { AdoptionService } from './services/adoption.service';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { AdoptionFormComponent } from './components/adoption-form/adoption-form.
     LoginComponent,
     AnimalDetailsComponent,
     AdoptionFormComponent,
+    SuccessComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
-  providers: [UserService, AnimalService],
+  providers: [UserService, AnimalService, AdoptionService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

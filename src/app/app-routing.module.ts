@@ -7,6 +7,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { AnimalDetailsComponent } from './pages/animal-details/animal-details.component';
+import { SuccessComponent } from './pages/success/success.component';
+import { AdoptionGuard } from './adoption.guard';
 
 const routes: Routes = [
   {
@@ -49,6 +51,12 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     title: 'Login page',
+  },
+  {
+    path: 'success',
+    component: SuccessComponent,
+    title: 'Success!',
+    canActivate: [AdoptionGuard]
   },
 ];
 

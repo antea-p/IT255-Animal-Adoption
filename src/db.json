@@ -16,7 +16,7 @@
       "age": "6 months",
       "speciesName": "fennec",
       "description": "Sandy has oversized ears and enjoys the desert sunset.",
-      "price": 150.50
+      "price": 150.5
     },
     {
       "id": 3,
@@ -57,5 +57,34 @@
       "password": "123456",
       "id": 2
     }
-  ]
+  ],
+  "adoptions": [
+    {
+      "name": "aa",
+      "surname": "a",
+      "phone": "1234",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Australia",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "id": 1
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "123",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12435",
+      "country": "Bahrain",
+      "paymentOption": "paypal",
+      "consent": true,
+      "personalNote": "",
+      "id": 2
+    }
+  ],
+  "usersAdoptions": []
 }

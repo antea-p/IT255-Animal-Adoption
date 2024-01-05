@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: #dff0d8;
+    /* Light green background */
+    color: #3c763d;
+    /* Dark green text */
+    border-radius: 15px;
+}
+
+.list-group-item {
+    background-color: transparent;
+    border: none;
+}
