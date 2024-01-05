@@ -53,6 +53,7 @@
     <div class="mb-3">
         <label for="country" class="form-label">Country</label>
         <select class="form-control" id="country" formControlName="country" required>
+            <option value="">Select Country</option>
             <option *ngFor="let country of countries$ | async" [value]="country">{{ country }}</option>
         </select>
         <div *ngIf="country?.touched && country?.invalid" class="invalid-feedback">

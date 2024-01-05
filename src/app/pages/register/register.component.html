@@ -17,9 +17,8 @@
         <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid"
             class="invalid-feedback">
             <div *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</div>
-            <div *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least {{ minPasswordLen
-                }} characters
-                long.
+            <div *ngIf="registerForm.get('password')?.errors?.['minlength']">
+                Password must be at least {{ minPasswordLen }} characters long.
             </div>
         </div>
     </div>
