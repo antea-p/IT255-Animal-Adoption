@@ -11,7 +11,7 @@ import { UserAdoption } from '../models/user-adoption.model';
 })
 export class AdoptionService {
   private apiUrl = 'http://localhost:3000';
-  public adoptedAnimal: Animal | null = null;
+  // public adoptedAnimal: Animal | null = null;
 
   constructor(private http: HttpClient, private userService: UserService) { }
 
@@ -30,7 +30,7 @@ export class AdoptionService {
 
   linkUserAdoption(adoptionId: number, userId: number) {
     const userAdoption: UserAdoption = { adoptionId, userId };
-    console.log(`userAdoption: ${userAdoption}`);
+    console.log(`userAdoption: ${userAdoption.adoptionId, userAdoption.userId}`);
     return this.http.post<UserAdoption>(`${this.apiUrl}/usersAdoptions`, userAdoption);
   }
 }

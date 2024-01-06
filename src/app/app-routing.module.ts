@@ -8,7 +8,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { AnimalDetailsComponent } from './pages/animal-details/animal-details.component';
 import { SuccessComponent } from './pages/success/success.component';
-import { AdoptionGuard } from './adoption.guard';
 
 const routes: Routes = [
   {

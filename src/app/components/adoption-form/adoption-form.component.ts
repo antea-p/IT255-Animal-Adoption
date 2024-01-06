@@ -39,7 +39,6 @@ export class AdoptionFormComponent {
       personalNote: ['']
     });
     this.countries$ = this.countryService.getCountries();
-    console.log(`CHILD animalId: ${this.animalId}`)
   }
 
   get name() {
@@ -87,15 +86,18 @@ export class AdoptionFormComponent {
       const adoptionFormValues = { ...this.adoptionForm.value };
       delete adoptionFormValues.consent;
 
-      const adoption: Adoption = {
+      const adoptionData: Adoption = {
         ...adoptionFormValues,
         animalId: this.animalId,
+        adoptionDateTime: new Date().toISOString()  // Adding current date-time
       };
 
-      this.adoptionService.submitAdoption(adoption).subscribe({
+      this.adoptionService.submitAdoption(adoptionData).subscribe({
         next: (adoption) => {
           if (adoption) {
-            this.router.navigate(['/success'])
+            console.log("Navigating to success with data:", adoptionData);
+            this.router.navigate(['success'], { state: { adoptionData } });
+            console.log("Navigation call made");
           } else {
             this.adoptionErrorMessage = "Please review the highlighted fields and provide the necessary details.";
             console.log(this.adoptionErrorMessage);

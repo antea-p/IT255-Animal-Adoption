@@ -22,7 +22,6 @@ export class AnimalDetailsComponent implements OnInit {
         const id = params.get('id');
         if (id) {
           this.animalId = +id;
-          console.log(`PARENT animalId: ${this.animalId}`)
           return this.animalService.getAnimalById(+id);
         } else {
           return throwError(() => new Error('Invalid animal ID'));

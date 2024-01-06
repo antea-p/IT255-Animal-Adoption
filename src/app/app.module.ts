@@ -18,6 +18,7 @@ import { AnimalDetailsComponent } from './pages/animal-details/animal-details.co
 import { AdoptionFormComponent } from './components/adoption-form/adoption-form.component';
 import { SuccessComponent } from './pages/success/success.component';
 import { AdoptionService } from './services/adoption.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { AdoptionService } from './services/adoption.service';
     AdoptionFormComponent,
     SuccessComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule, HttpClientModule, ReactiveFormsModule],
   providers: [UserService, AnimalService, AdoptionService],
   bootstrap: [AppComponent],
 })
