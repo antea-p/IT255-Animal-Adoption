@@ -11,7 +11,6 @@ import { UserAdoption } from '../models/user-adoption.model';
 })
 export class AdoptionService {
   private apiUrl = 'http://localhost:3000';
-  // public adoptedAnimal: Animal | null = null;
 
   constructor(private http: HttpClient, private userService: UserService) { }
 

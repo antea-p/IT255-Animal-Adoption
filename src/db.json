@@ -384,6 +384,48 @@
       "animalId": 1,
       "adoptionDateTime": "2024-01-06T16:09:14.504Z",
       "id": 24
+    },
+    {
+      "name": "aaa",
+      "surname": "aa",
+      "phone": "12",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahamas",
+      "paymentOption": "paypal",
+      "personalNote": "",
+      "animalId": 1,
+      "adoptionDateTime": "2024-01-06T17:06:44.978Z",
+      "id": 25
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "1",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahrain",
+      "paymentOption": "creditCard",
+      "personalNote": "",
+      "animalId": 1,
+      "adoptionDateTime": "2024-01-06T17:08:45.779Z",
+      "id": 26
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "123",
+      "street": "aa",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahamas",
+      "paymentOption": "paypal",
+      "personalNote": "",
+      "animalId": 2,
+      "adoptionDateTime": "2024-01-06T17:33:28.316Z",
+      "id": 27
     }
   ],
   "usersAdoptions": [
@@ -503,6 +545,21 @@
       "adoptionId": 24,
       "userId": 2,
       "id": 24
+    },
+    {
+      "adoptionId": 25,
+      "userId": 2,
+      "id": 25
+    },
+    {
+      "adoptionId": 26,
+      "userId": 2,
+      "id": 26
+    },
+    {
+      "adoptionId": 27,
+      "userId": 2,
+      "id": 27
     }
   ]
 }
