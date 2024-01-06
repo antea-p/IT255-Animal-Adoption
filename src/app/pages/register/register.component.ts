@@ -10,11 +10,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registerForm!: FormGroup;
+  registerForm: FormGroup;
   minPasswordLen: number = 6;
-
-  // TODO: handle "user with that email already exists" case
-
+  registrationError: string = '';
   constructor(private fb: FormBuilder,
     private userService: UserService,
     private router: Router
@@ -48,15 +46,15 @@ export class RegisterComponent implements OnInit {
       const newUser: User = {
         ...registerFormValues
       };
+
       this.userService.register(newUser).subscribe({
         next: (response) => {
           console.log('Registration successful', response);
-          // User is set in localStorage within UserService
-          this.router.navigate(['/home']); // Redirect to home upon successful registration
+          this.router.navigate(['/home']);
         },
         error: (error) => {
+          this.registrationError = 'User with this email already exists!';
           console.error('Registration failed', error);
-          // Handle registration error
         }
       });
     }
@@ -68,17 +66,16 @@ export class RegisterComponent implements OnInit {
       const passwordControl = formGroup.controls[password];
       const confirmPasswordControl = formGroup.controls[confirmPassword];
 
-      // Case when a different validator has already found an error on the confirm password control
+      // Slučaj kad je drugi validator već našao grešku u kontroli confirmPassword
       if (confirmPasswordControl.errors && !confirmPasswordControl.errors['mustMatch']) {
-        // Return early if another validator has found an error on the confirmPasswordControl
         return;
       }
 
-      // Set the 'mustMatch' error on confirm password control if validation fails
+      // Podesi 'mustMatch' grešku ako validacija padne
       if (passwordControl.value !== confirmPasswordControl.value) {
         confirmPasswordControl.setErrors({ mustMatch: true });
       } else {
-        // If they do match, remove the error if it exists
+        // Ako se password i confirmPassword podudaraju, resetiraj greške
         confirmPasswordControl.setErrors(null);
       }
     };

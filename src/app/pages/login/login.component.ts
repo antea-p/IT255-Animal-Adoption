@@ -47,7 +47,6 @@ export class LoginComponent {
       this.userService.login(user).subscribe({
         next: (user) => {
           if (user) {
-            // TODO remove: this.userService.setCurrentUser(user);
             // Ako je korisnik preusmjeren sa stranice /detail/:id, bit će preusmjeren natrag
             // na tu stranicu, inače će biti preusmjeren na početnu stranicu
             const redirect = this.userService.redirectUrl ? this.userService.redirectUrl : '/home';
