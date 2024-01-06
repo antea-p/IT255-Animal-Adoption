@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { Animal } from '../models/animal';
 import { Adoption } from '../models/adoption.model';
 import { UserService } from './user.service';
@@ -22,11 +22,11 @@ export class AdoptionService {
     }
 
     return this.http.post<Adoption>(`${this.apiUrl}/adoptions`, adoption).pipe(
-      switchMap(() => {
-        return this.linkUserAdoption(1, 1);
-      })
+      tap((newAdoption: Adoption) => console.log(`adoptionId: ${newAdoption.id}`)),
+      switchMap((newAdoption: Adoption) => this.linkUserAdoption(newAdoption.id, 1))
     );
   }
+
 
   linkUserAdoption(adoptionId: number, userId: number) {
     const userAdoption: UserAdoption = { adoptionId, userId };

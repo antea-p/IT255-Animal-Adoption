@@ -56,8 +56,22 @@
   "adoptions": [
     {
       "name": "a",
-      "surname": "aa1",
-      "phone": "1",
+      "surname": "a",
+      "phone": "123",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bangladesh",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "animalId": 5,
+      "id": 1
+    },
+    {
+      "name": "aa",
+      "surname": "a",
+      "phone": "123",
       "street": "a",
       "city": "a",
       "zipcode": "12345",
@@ -65,29 +79,131 @@
       "paymentOption": "creditCard",
       "consent": true,
       "personalNote": "",
-      "animalId": 4,
-      "id": 1
+      "animalId": 5,
+      "id": 2
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "12",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahrain",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "animalId": 5,
+      "id": 3
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "12",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahrain",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "animalId": 1,
+      "id": 4
     },
     {
       "name": "aa",
-      "surname": "1",
-      "phone": "1234",
+      "surname": "a",
+      "phone": "123",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bangladesh",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "animalId": 5,
+      "id": 5
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "123",
       "street": "a",
       "city": "a",
       "zipcode": "12345",
       "country": "Bahamas",
-      "paymentOption": "paypal",
+      "paymentOption": "creditCard",
       "consent": true,
       "personalNote": "",
       "animalId": 1,
-      "id": 2
+      "id": 6
+    },
+    {
+      "name": "aa",
+      "surname": "a",
+      "phone": "123",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahamas",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "animalId": 1,
+      "id": 7
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "123",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bangladesh",
+      "paymentOption": "creditCard",
+      "consent": true,
+      "personalNote": "",
+      "animalId": 1,
+      "id": 8
     }
   ],
   "usersAdoptions": [
     {
-      "adoptionId": 1,
       "userId": 1,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "adoptionId": 1,
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "adoptionId": 1,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "adoptionId": 6,
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "adoptionId": 7,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "adoptionId": 8,
+      "userId": 1,
+      "id": 8
     }
   ]
 }

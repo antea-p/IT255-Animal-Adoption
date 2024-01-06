@@ -9,14 +9,14 @@ import { AdoptionService } from 'src/app/services/adoption.service';
   styleUrls: ['./success.component.css']
 })
 export class SuccessComponent {
-  adoptedAnimal: Animal | null = null;
+  // adoptedAnimal: Animal | null = null;
 
-  constructor(private adoptionService: AdoptionService, private router: Router) { }
+  // constructor(private adoptionService: AdoptionService, private router: Router) { }
 
-  ngOnInit(): void {
-    this.adoptedAnimal = this.adoptionService.adoptedAnimal;
-    if (!this.adoptedAnimal) {
-      this.router.navigate(['/home']);
-    }
-  }
+  // ngOnInit(): void {
+  //   this.adoptedAnimal = this.adoptionService.adoptedAnimal;
+  //   if (!this.adoptedAnimal) {
+  //     this.router.navigate(['/home']);
+  //   }
+  // }
 }

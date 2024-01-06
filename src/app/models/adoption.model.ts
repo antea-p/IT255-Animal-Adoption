@@ -1,5 +1,5 @@
 export interface Adoption {
-    id?: number; // Optional for new adoptions
+    id: number;
     animalId: number;
     name: string;
     surname: string;
