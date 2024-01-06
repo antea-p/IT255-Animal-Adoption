@@ -82,7 +82,9 @@
 
     <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="consent" formControlName="consent" required>
-        <label class="form-check-label" for="consent">I agree to the terms and conditions of the adoption</label>
+        <label class="form-check-label" for="consent">
+            I agree to the <a routerLink="/terms-and-conditions">Terms and Conditions</a> of the adoption
+        </label>
         <div *ngIf="consent?.touched && consent?.invalid" class="invalid-feedback">
             <div *ngIf="consent?.errors?.['required']">You must agree before submitting.</div>
         </div>

@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { AnimalDetailsComponent } from './pages/animal-details/animal-details.component';
 import { SuccessComponent } from './pages/success/success.component';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 
 const routes: Routes = [
   {
@@ -29,27 +30,27 @@ const routes: Routes = [
   {
     path: 'about-us',
     component: AboutUsComponent,
-    title: 'About Us page',
+    title: 'About Us',
   },
   {
     path: 'contact-us',
     component: ContactUsComponent,
-    title: 'Contact Us page',
+    title: 'Contact Us',
+  },
+  {
+    path: 'terms-and-conditions',
+    component: TermsConditionsComponent,
+    title: 'Terms and Conditions',
   },
   {
     path: 'register',
     component: RegisterComponent,
-    title: 'Register page',
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-    title: 'Register page',
+    title: 'Register',
   },
   {
     path: 'login',
     component: LoginComponent,
-    title: 'Login page',
+    title: 'Login',
   },
   {
     path: 'success',
