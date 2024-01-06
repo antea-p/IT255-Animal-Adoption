@@ -165,6 +165,19 @@
       "personalNote": "",
       "animalId": 1,
       "id": 8
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "123",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahamas",
+      "paymentOption": "creditCard",
+      "personalNote": "",
+      "animalId": 5,
+      "id": 9
     }
   ],
   "usersAdoptions": [
@@ -204,6 +217,11 @@
       "adoptionId": 8,
       "userId": 1,
       "id": 8
+    },
+    {
+      "adoptionId": 9,
+      "userId": 1,
+      "id": 9
     }
   ]
 }

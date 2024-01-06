@@ -10,5 +10,4 @@ export interface Adoption {
     country: string;
     paymentOption: string;
     personalNote?: string; // Optional
-    consent: boolean;
 }

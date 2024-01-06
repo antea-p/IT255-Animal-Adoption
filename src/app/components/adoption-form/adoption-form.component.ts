@@ -82,10 +82,15 @@ export class AdoptionFormComponent {
     this.adoptionForm.markAllAsTouched();
 
     if (this.adoptionForm.valid) {
+      // "consent" je nepotreban u kontekstu Adoption objekta
+      const adoptionFormValues = { ...this.adoptionForm.value };
+      delete adoptionFormValues.consent;
+
       const adoption: Adoption = {
-        ...this.adoptionForm.value,
+        ...adoptionFormValues,
         animalId: this.animalId,
       };
+
       this.adoptionService.submitAdoption(adoption).subscribe({
         next: (adoption) => {
           if (adoption) {
