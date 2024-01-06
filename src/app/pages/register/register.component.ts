@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, PatternValidator } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,7 +13,12 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   minPasswordLen: number = 6;
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  // TODO: handle "user with that email already exists" case
+
+  constructor(private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -36,24 +42,26 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      const newUser = new User(
-        this.registerForm.value.email,
-        this.registerForm.value.password
-      );
+      // TODO: typing
+      const registerFormValues = { ...this.registerForm.value };
+      delete registerFormValues.confirmPassword;
+      const newUser: User = {
+        ...registerFormValues
+      };
       this.userService.register(newUser).subscribe({
         next: (response) => {
           console.log('Registration successful', response);
+          // User is set in localStorage within UserService
+          this.router.navigate(['/home']); // Redirect to home upon successful registration
         },
         error: (error) => {
           console.error('Registration failed', error);
           // Handle registration error
-        },
-        complete: () => {
-          // Code for when the Observable completes
         }
       });
     }
   }
+
 
   mustMatch(password: string, confirmPassword: string) {
     return (formGroup: FormGroup) => {

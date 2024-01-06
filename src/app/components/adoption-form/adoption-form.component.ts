@@ -82,6 +82,7 @@ export class AdoptionFormComponent {
     this.adoptionForm.markAllAsTouched();
 
     if (this.adoptionForm.valid) {
+      // TODO: typing
       // "consent" je nepotreban u kontekstu Adoption objekta
       const adoptionFormValues = { ...this.adoptionForm.value };
       delete adoptionFormValues.consent;

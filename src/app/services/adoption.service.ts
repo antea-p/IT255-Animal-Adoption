@@ -23,7 +23,7 @@ export class AdoptionService {
 
     return this.http.post<Adoption>(`${this.apiUrl}/adoptions`, adoption).pipe(
       tap((newAdoption: Adoption) => console.log(`adoptionId: ${newAdoption.id}`)),
-      switchMap((newAdoption: Adoption) => this.linkUserAdoption(newAdoption.id, 1))
+      switchMap((newAdoption: Adoption) => this.linkUserAdoption(newAdoption.id, currentUser.id))
     );
   }
 

@@ -40,14 +40,14 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      const user = new User(
-        this.loginForm.value.email,
-        this.loginForm.value.password
-      );
+      const user: User = {
+        ...this.loginForm.value
+      };
+      console.log("LoginComponent user: ${user}");
       this.userService.login(user).subscribe({
         next: (user) => {
           if (user) {
-            this.userService.setCurrentUser(user);
+            // TODO remove: this.userService.setCurrentUser(user);
             // Ako je korisnik preusmjeren sa stranice /detail/:id, bit će preusmjeren natrag
             // na tu stranicu, inače će biti preusmjeren na početnu stranicu
             const redirect = this.userService.redirectUrl ? this.userService.redirectUrl : '/home';

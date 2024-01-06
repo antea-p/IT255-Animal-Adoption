@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
-import { map, catchError, throwError } from 'rxjs';
+import { map, catchError, throwError, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +13,30 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   register(user: User) {
-    return this.http.post(this.apiUrl, user);
+    return this.http.post<User>(this.apiUrl, user)
+      .pipe(
+        tap(newUser => {
+          if (newUser) {
+            this.setCurrentUser(newUser);
+          }
+        }),
+        catchError(this.handleError)
+      );
   }
 
   login(user: User) {
     return this.http.get<User[]>(`${this.apiUrl}?email=${user.email}`)
       .pipe(
         map(users => users.find(u => u.email === user.email && u.password === user.password)),
+        tap(foundUser => {
+          if (foundUser) {
+            this.setCurrentUser(foundUser);
+          }
+        }),
         catchError(this.handleError)
       );
   }
+
 
   logout(): void {
     localStorage.removeItem('currentUser');
@@ -34,7 +48,7 @@ export class UserService {
 
   getCurrentUser(): User | null {
     const userJson = localStorage.getItem('currentUser');
-    return userJson ? JSON.parse(userJson) : null;
+    return userJson ? JSON.parse(userJson) as User : null;
   }
 
   isLoggedIn(): boolean {
