@@ -9,5 +9,6 @@ export interface Adoption {
     zipcode: string;
     country: string;
     paymentOption: string;
-    personalNote?: string; // Optional
+    // TODO: adoptionDateTime
+    personalNote?: string;
 }

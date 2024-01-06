@@ -426,6 +426,34 @@
       "animalId": 2,
       "adoptionDateTime": "2024-01-06T17:33:28.316Z",
       "id": 27
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "1",
+      "street": "aa",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahrain",
+      "paymentOption": "creditCard",
+      "personalNote": "",
+      "animalId": 1,
+      "adoptionDateTime": "2024-01-06T19:36:05.745Z",
+      "id": 28
+    },
+    {
+      "name": "a",
+      "surname": "a",
+      "phone": "123",
+      "street": "a",
+      "city": "a",
+      "zipcode": "12345",
+      "country": "Bahamas",
+      "paymentOption": "creditCard",
+      "personalNote": "",
+      "animalId": 2,
+      "adoptionDateTime": "2024-01-06T19:42:10.966Z",
+      "id": 29
     }
   ],
   "usersAdoptions": [
@@ -560,6 +588,16 @@
       "adoptionId": 27,
       "userId": 2,
       "id": 27
+    },
+    {
+      "adoptionId": 28,
+      "userId": 2,
+      "id": 28
+    },
+    {
+      "adoptionId": 29,
+      "userId": 2,
+      "id": 29
     }
   ]
 }

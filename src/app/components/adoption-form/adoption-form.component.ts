@@ -80,35 +80,35 @@ export class AdoptionFormComponent {
   onSubmit(): void {
     this.adoptionForm.markAllAsTouched();
 
-    if (this.adoptionForm.valid) {
-      // TODO: typing
-      // "consent" je nepotreban u kontekstu Adoption objekta
-      const adoptionFormValues = { ...this.adoptionForm.value };
-      delete adoptionFormValues.consent;
-
-      const adoptionData: Adoption = {
-        ...adoptionFormValues,
-        animalId: this.animalId,
-        adoptionDateTime: new Date().toISOString()  // Adding current date-time
-      };
-
-      this.adoptionService.submitAdoption(adoptionData).subscribe({
-        next: (adoption) => {
-          if (adoption) {
-            console.log("Navigating to success with data:", adoptionData);
-            this.router.navigate(['success'], { state: { adoptionData } });
-            console.log("Navigation call made");
-          } else {
-            this.adoptionErrorMessage = "Please review the highlighted fields and provide the necessary details.";
-            console.log(this.adoptionErrorMessage);
-          }
-        },
-        error: (err) => {
-          console.error('Error during adoption submission:', err);
-          this.adoptionErrorMessage = "Failed to submit adoption. Please try again later.";
-        }
-      });
+    if (!this.adoptionForm.valid) {
+      this.adoptionErrorMessage = "Please review the highlighted fields and provide the necessary details.";
+      return;
     }
+
+    // TODO: typing
+    // "consent" je nepotreban u kontekstu Adoption objekta
+    const adoptionFormValues = { ...this.adoptionForm.value };
+    delete adoptionFormValues.consent;
+
+    const adoptionData: Adoption = {
+      ...adoptionFormValues,
+      animalId: this.animalId,
+      adoptionDateTime: new Date().toISOString()  // Generiraj timestamp
+    };
+
+    this.adoptionService.submitAdoption(adoptionData).subscribe({
+      next: (adoption) => {
+        if (adoption) {
+          console.log("Navigating to success with data:", adoptionData);
+          this.router.navigate(['success'], { state: { adoptionData } });
+          console.log("Navigation call made");
+        }
+      },
+      error: (err) => {
+        console.error('Error during adoption submission:', err);
+        this.adoptionErrorMessage = "Failed to submit adoption. Please try again later.";
+      }
+    });
   }
 
 }

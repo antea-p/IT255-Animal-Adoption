@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class SuccessComponent {
   adoptionData: Adoption;
-  animal$: Observable<Animal>; // Observable for animal data
+  animal$: Observable<Animal>;
 
   constructor(private router: Router, private animalService: AnimalService) {
     const navigation = this.router.getCurrentNavigation();
