@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Animal } from '../../models/animal';
 import { AnimalService } from '../../services/animal.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,12 @@ import { AnimalService } from '../../services/animal.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  animals!: Animal[];
+  animals$: Observable<Animal[]>;
 
   constructor(private animalService: AnimalService) { }
 
   ngOnInit() {
-    this.animalService.getAnimals().subscribe((data) => {
-      // console.log(data); // Check if data is being received
-      this.animals = data;
-    });
+    this.animals$ = this.animalService.getAnimals();
   }
+
 }

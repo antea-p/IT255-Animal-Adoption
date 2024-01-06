@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
-import { map, catchError, throwError, tap } from 'rxjs';
+import { map, catchError, throwError, tap, Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +12,30 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  userExists(email: string): Observable<boolean> {
+    return this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
+      map(users => users.length > 0),
+      catchError(this.handleError)
+    );
+  }
+
   register(user: User) {
-    return this.http.post<User>(this.apiUrl, user)
-      .pipe(
-        tap(newUser => {
-          if (newUser) {
-            this.setCurrentUser(newUser);
-          }
-        }),
-        catchError(this.handleError)
-      );
+    // prvo provjeri postoji li korisnik; 
+    // ako da, izbaci grešku, inače registriraj korisnika
+    return this.userExists(user.email).pipe(
+      switchMap(exists => {
+        if (exists) {
+          return throwError(() => new Error('User with this email already exists'));
+        }
+        return this.http.post<User>(this.apiUrl, user);
+      }),
+      tap(newUser => {
+        if (newUser) {
+          this.setCurrentUser(newUser);
+        }
+      }),
+      catchError(this.handleError)
+    );
   }
 
   login(user: User) {

@@ -16,7 +16,6 @@ export class AnimalDetailsComponent implements OnInit {
   constructor(private animalService: AnimalService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // TODO: komentar
     this.animal$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         const id = params.get('id');
