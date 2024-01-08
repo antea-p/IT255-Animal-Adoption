@@ -9,6 +9,6 @@ export interface Adoption {
     zipcode: string;
     country: string;
     paymentOption: string;
-    // TODO: adoptionDateTime
+    adoptionDateTime: string;
     personalNote?: string;
 }

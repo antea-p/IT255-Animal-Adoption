@@ -27,11 +27,11 @@ export class AdoptionFormComponent {
 
   ngOnInit(): void {
     this.adoptionForm = this.fb.group({
-      name: ['', [Validators.required]],
-      surname: ['', [Validators.required]],
-      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      street: ['', [Validators.required]],
-      city: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿščćđžŠČĆĐŽ '-]+$/)]], // Updated regex
+      surname: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿščćđžŠČĆĐŽ '-]+$/)]],
+      phone: ['', [Validators.required, Validators.pattern(/^\+?[0-9 ]+$/)]],
+      street: ['', [Validators.required, Validators.pattern(/^[A-Za-z0-9À-ÖØ-öø-ÿščćđžŠČĆĐŽ ',.-]+$/)]],
+      city: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿščćđžŠČĆĐŽ '-]+$/)]],
       zipcode: ['', [Validators.required, Validators.pattern('^[0-9]{5}$')]],
       country: ['', [Validators.required]],
       paymentOption: ['', [Validators.required]],

@@ -61,6 +61,21 @@
       "email": "bb@gmail.com",
       "password": "123456",
       "id": 3
+    },
+    {
+      "email": "a@ac.com",
+      "password": "385123456",
+      "id": 4
+    },
+    {
+      "email": "m@hotmail.com",
+      "password": "testtest",
+      "id": 5
+    },
+    {
+      "email": "zzz@YAHOO.COM",
+      "password": "AAAAAA",
+      "id": 6
     }
   ],
   "adoptions": [
@@ -454,6 +469,20 @@
       "animalId": 2,
       "adoptionDateTime": "2024-01-06T19:42:10.966Z",
       "id": 29
+    },
+    {
+      "name": "Danica Kovaček",
+      "surname": "a",
+      "phone": "345",
+      "street": "Aaa",
+      "city": "Ya ",
+      "zipcode": "55555",
+      "country": "Croatia",
+      "paymentOption": "creditCard",
+      "personalNote": "aaa",
+      "animalId": 2,
+      "adoptionDateTime": "2024-01-08T19:03:46.214Z",
+      "id": 30
     }
   ],
   "usersAdoptions": [
@@ -598,6 +627,11 @@
       "adoptionId": 29,
       "userId": 2,
       "id": 29
+    },
+    {
+      "adoptionId": 30,
+      "userId": 2,
+      "id": 30
     }
   ]
 }
