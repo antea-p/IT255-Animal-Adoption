@@ -20,6 +20,9 @@ import { SuccessComponent } from './pages/success/success.component';
 import { AdoptionService } from './services/adoption.service';
 import { RouterModule } from '@angular/router';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { StoreModule } from '@ngrx/store';
+import { animalReducer } from './store/animal.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,15 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
     SuccessComponent,
     TermsConditionsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule, HttpClientModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot({ animals: animalReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
+  ],
   providers: [UserService, AnimalService, AdoptionService],
   bootstrap: [AppComponent],
 })
