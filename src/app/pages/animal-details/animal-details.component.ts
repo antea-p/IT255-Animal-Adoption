@@ -10,7 +10,7 @@ import { AnimalService } from 'src/app/services/animal.service';
   styleUrls: ['./animal-details.component.css']
 })
 export class AnimalDetailsComponent implements OnInit {
-  animal$: Observable<Animal>;
+  animal$: Observable<Animal | undefined>;
   animalId: number;
 
   constructor(private animalService: AnimalService, private route: ActivatedRoute) { }

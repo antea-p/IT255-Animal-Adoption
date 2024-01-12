@@ -6,7 +6,7 @@ export const animalReducer = createReducer(
     initialState,
     on(setAnimals, (state, { animals }) => ({
         ...state,
-        allanimals: animals
+        allAnimals: animals
     })
     ),
 );
