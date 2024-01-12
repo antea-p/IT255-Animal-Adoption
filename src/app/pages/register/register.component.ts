@@ -40,9 +40,12 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      // TODO: typing
-      const registerFormValues = { ...this.registerForm.value };
+      const registerFormValues = {
+        ...this.registerForm.value,
+        isAdmin: false
+      };
       delete registerFormValues.confirmPassword;
+
       const newUser: User = {
         ...registerFormValues
       };

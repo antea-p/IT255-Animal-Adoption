@@ -50,32 +50,50 @@
     {
       "id": 1,
       "email": "test@gmail.com",
-      "password": "1234"
+      "password": "1234",
+      "isAdmin": false
     },
     {
       "email": "a@a.com",
       "password": "123456",
-      "id": 2
+      "id": 2,
+      "isAdmin": false
     },
     {
       "email": "bb@gmail.com",
       "password": "123456",
-      "id": 3
+      "id": 3,
+      "isAdmin": false
     },
     {
       "email": "a@ac.com",
       "password": "385123456",
-      "id": 4
+      "id": 4,
+      "isAdmin": false
     },
     {
       "email": "m@hotmail.com",
       "password": "testtest",
+      "isAdmin": false,
       "id": 5
     },
     {
       "email": "zzz@YAHOO.COM",
       "password": "AAAAAA",
+      "isAdmin": false,
       "id": 6
+    },
+    {
+      "email": "aa@aa.com",
+      "password": "121212",
+      "isAdmin": false,
+      "id": 7
+    },
+    {
+      "email": "meow@meow.com",
+      "password": "testtest",
+      "isAdmin": true,
+      "id": 8
     }
   ],
   "adoptions": [
@@ -483,6 +501,20 @@
       "animalId": 2,
       "adoptionDateTime": "2024-01-08T19:03:46.214Z",
       "id": 30
+    },
+    {
+      "name": "Adam Christian",
+      "surname": "Wolf",
+      "phone": "3549415",
+      "street": "Cupidatat fugiat co",
+      "city": "Dolorum veritatis ex",
+      "zipcode": "89392",
+      "country": "Croatia",
+      "paymentOption": "paypal",
+      "personalNote": "Asperiores ex nobis ",
+      "animalId": 3,
+      "adoptionDateTime": "2024-01-12T18:04:17.434Z",
+      "id": 31
     }
   ],
   "usersAdoptions": [
@@ -632,6 +664,11 @@
       "adoptionId": 30,
       "userId": 2,
       "id": 30
+    },
+    {
+      "adoptionId": 31,
+      "userId": 1,
+      "id": 31
     }
   ]
 }

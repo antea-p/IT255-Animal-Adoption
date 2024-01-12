@@ -23,6 +23,7 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
 import { StoreModule } from '@ngrx/store';
 import { animalReducer } from './store/animal.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AdoptionFormComponent,
     SuccessComponent,
     TermsConditionsComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

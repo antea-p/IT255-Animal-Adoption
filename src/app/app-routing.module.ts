@@ -9,6 +9,8 @@ import { AuthGuard } from './auth.guard';
 import { AnimalDetailsComponent } from './pages/animal-details/animal-details.component';
 import { SuccessComponent } from './pages/success/success.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
@@ -56,6 +58,12 @@ const routes: Routes = [
     path: 'success',
     component: SuccessComponent,
     title: 'Success!',
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    title: 'Admin Page',
+    canActivate: [AdminGuard]
   },
 ];
 
