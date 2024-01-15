@@ -63,7 +63,10 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     title: 'Admin Page',
-    canActivate: [AdminGuard]
+    canActivate: [AdminGuard],
+    children: [
+
+    ]
   },
 ];
 
