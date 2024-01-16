@@ -14,8 +14,18 @@ export class UserCrudComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.getUsers();
+  }
+
+  private getUsers() {
     this.userService.getUsers().subscribe(users => {
+      console.log("getRooms called by UserCRUD");
       this.users = users;
     });
+  }
+
+  deleteUser(id: number): void {
+    console.log('UserCRUDComponent requesting deletion of user with id:', id);
+    this.userService.deleteUser(id);
   }
 }

@@ -4,8 +4,8 @@ import { User } from '../models/user.model';
 import { map, catchError, throwError, tap, Observable, switchMap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/user.state';
-import { setUsers } from '../store/user.actions';
-import { selectAllUsers } from '../store/user.selectors';
+import { deleteUser, setUsers } from '../store/user.actions';
+import { selectAllUsers, selectUserById } from '../store/user.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +44,32 @@ export class UserService {
       })
     );
   }
+
+  getUserById(id: number): Observable<User | undefined> {
+    return this.store.select(selectUserById(id)).pipe(
+      tap(() => {
+        // TODO: temporary
+        console.log(`getUserById: selected user with id ${id}`);
+      }),
+      catchError(error => {
+        console.error(`Error selecting user with ID ${id}`, error);
+        return throwError(() => new Error(`Error selecting selecting user with ID ${id}from store`));
+      })
+    )
+  }
+
+  public deleteUser(id: number): void {
+    console.log('Attempting to delete user with id:', id);
+    this.http.delete(`${this.apiUrl}/${id}`).subscribe({
+      next: () => {
+        console.log('User deleted on server, dispatching deleteUser to store:', id);
+        this.store.dispatch(deleteUser({ id }));
+      },
+      error: (error) => console.error('Error deleting user:', error),
+      complete: () => console.log('User deletion completed')
+    });
+  }
+
 
   userExists(email: string): Observable<boolean> {
     return this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
