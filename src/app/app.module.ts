@@ -30,6 +30,7 @@ import { CrudTableComponent } from './components/crud-table/crud-table.component
 import { CrudFormComponent } from './components/crud-form/crud-form.component';
 import { NgxDatatableModule } from '@siemens/ngx-datatable';
 import { UserCrudComponent } from './pages/user-crud/user-crud.component';
+import { userReducer } from './store/user.reducers';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { UserCrudComponent } from './pages/user-crud/user-crud.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgxDatatableModule,
-    StoreModule.forRoot({ animals: animalReducer }),
+    StoreModule.forRoot({ animals: animalReducer, users: userReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [UserService, AnimalService, AdoptionService],

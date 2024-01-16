@@ -2,6 +2,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { map, catchError, throwError, tap, Observable, switchMap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/user.state';
+import { setUsers } from '../store/user.actions';
+import { selectAllUsers } from '../store/user.selectors';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +14,34 @@ export class UserService {
   redirectUrl: string | null = null;
   private apiUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private store: Store<AppState>) {
+    this.loadInitialData();
+  }
+
+  private loadInitialData(): void {
+    console.log("userService: loadInitialData called!")
+    this.http.get<User[]>(this.apiUrl).pipe(
+      tap(users => {
+        console.log('Dispatching setUsers with:', users);
+        this.store.dispatch(setUsers({ users }));
+      }),
+      catchError(error => {
+        console.error('Error fetching users', error);
+        return throwError(() => new Error('Error fetching users'));
+      })
+    ).subscribe();
+  }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl).pipe(
-      catchError(this.handleError)
+    return this.store.select(selectAllUsers).pipe(
+      tap(() => {
+        // TODO: temporary
+        console.log(`getUsers: selected all users from store`);
+      }),
+      catchError(error => {
+        console.error('Error selecting all users from store', error);
+        return throwError(() => new Error('Error selecting all users from store'));
+      })
     );
   }
 
