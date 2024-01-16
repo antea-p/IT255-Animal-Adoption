@@ -4,13 +4,16 @@ import { User } from '../models/user.model';
 import { map, catchError, throwError, tap, Observable, switchMap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/user.state';
-import { deleteUser, setUsers } from '../store/user.actions';
+import { addUser, deleteUser, setUsers } from '../store/user.actions';
 import { selectAllUsers, selectUserById } from '../store/user.selectors';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  addUser(userModel: {}) {
+    throw new Error('Method not implemented.');
+  }
   redirectUrl: string | null = null;
   private apiUrl = 'http://localhost:3000/users';
 
@@ -53,9 +56,21 @@ export class UserService {
       }),
       catchError(error => {
         console.error(`Error selecting user with ID ${id}`, error);
-        return throwError(() => new Error(`Error selecting selecting user with ID ${id}from store`));
+        return throwError(() => new Error(`Error selecting user with ID ${id}from store`));
       })
     )
+  }
+
+  public createUser(user: User): Observable<User> {
+    return this.http.post<User>(this.apiUrl, user).pipe(
+      tap(newUser => {
+        this.store.dispatch(addUser({ user: newUser }));
+      }),
+      catchError(error => {
+        console.error(`Error adding user ${user}`, error);
+        return throwError(() => new Error(`Error adding user ${user} to store`));
+      })
+    );
   }
 
   public deleteUser(id: number): void {

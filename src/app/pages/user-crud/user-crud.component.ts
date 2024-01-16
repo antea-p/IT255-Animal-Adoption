@@ -1,5 +1,6 @@
 import { Component, EventEmitter, HostBinding, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,6 +11,36 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserCrudComponent implements OnInit {
   users: User[] = [];
+  newUserForm = new FormGroup({});
+  userModel: User = {
+    id: 0,
+    email: '',
+    password: '',
+    isAdmin: false
+  };
+  userFields: FormlyFieldConfig[] = [
+    {
+      key: 'email',
+      type: 'input',
+      templateOptions: {
+        type: 'email',
+        label: 'Email',
+        placeholder: 'Enter email',
+        required: true,
+      }
+    },
+    {
+      key: 'password',
+      type: 'input',
+      templateOptions: {
+        type: 'password',
+        label: 'Password',
+        placeholder: 'Enter password',
+        required: true,
+      }
+    }
+  ];
+
 
   constructor(private userService: UserService) { }
 
@@ -19,10 +50,20 @@ export class UserCrudComponent implements OnInit {
 
   private getUsers() {
     this.userService.getUsers().subscribe(users => {
-      console.log("getRooms called by UserCRUD");
+      console.log("getUsers called by UserCRUD");
       this.users = users;
     });
   }
+
+
+  createUser(newUser: User): void {
+    console.log('Adding user:', newUser);
+    this.userService.createUser(newUser).subscribe((createdUser) => {
+      console.log('User created:', createdUser);
+      this.getUsers();
+    });
+  }
+
 
   deleteUser(id: number): void {
     console.log('UserCRUDComponent requesting deletion of user with id:', id);

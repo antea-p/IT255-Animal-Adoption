@@ -31,6 +31,8 @@ import { CrudFormComponent } from './components/crud-form/crud-form.component';
 import { NgxDatatableModule } from '@siemens/ngx-datatable';
 import { UserCrudComponent } from './pages/user-crud/user-crud.component';
 import { userReducer } from './store/user.reducers';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { userReducer } from './store/user.reducers';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormlyModule.forRoot(),
+    FormlyBootstrapModule,
     NgxDatatableModule,
     StoreModule.forRoot({ animals: animalReducer, users: userReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })

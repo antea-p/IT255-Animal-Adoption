@@ -64,6 +64,12 @@
       "password": "testtest",
       "isAdmin": true,
       "id": 8
+    },
+    {
+      "id": 9,
+      "email": "aa@mm.com",
+      "password": "12345678",
+      "isAdmin": false
     }
   ],
   "adoptions": [

@@ -9,3 +9,7 @@
             <button class="btn btn-danger btn-sm" (click)="deleteUser(row.id)">Delete</button> </ng-template>
     </ngx-datatable-column>
 </ngx-datatable>
+<form [formGroup]="newUserForm" (ngSubmit)="createUser(userModel)">
+    <formly-form [model]="userModel" [fields]="userFields"></formly-form>
+    <button type="submit" class="btn btn-success">Add User</button>
+</form>
