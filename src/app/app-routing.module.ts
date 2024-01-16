@@ -11,6 +11,9 @@ import { SuccessComponent } from './pages/success/success.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { AdminGuard } from './admin.guard';
+import { UserCrudComponent } from './pages/user-crud/user-crud.component';
+import { AnimalCrudComponent } from './pages/animal-crud/animal-crud.component';
+import { AdoptionCrudComponent } from './pages/adoption-crud/adoption-crud.component';
 
 const routes: Routes = [
   {
@@ -65,7 +68,9 @@ const routes: Routes = [
     title: 'Admin Page',
     canActivate: [AdminGuard],
     children: [
-
+      { path: 'users', component: UserCrudComponent },
+      { path: 'animals', component: AnimalCrudComponent },
+      { path: 'adoptions', component: AdoptionCrudComponent }
     ]
   },
 ];

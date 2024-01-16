@@ -24,6 +24,12 @@ import { StoreModule } from '@ngrx/store';
 import { animalReducer } from './store/animal.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AdminComponent } from './pages/admin/admin.component';
+import { AnimalCrudComponent } from './pages/animal-crud/animal-crud.component';
+import { AdoptionCrudComponent } from './pages/adoption-crud/adoption-crud.component';
+import { CrudTableComponent } from './components/crud-table/crud-table.component';
+import { CrudFormComponent } from './components/crud-form/crud-form.component';
+import { NgxDatatableModule } from '@siemens/ngx-datatable';
+import { UserCrudComponent } from './pages/user-crud/user-crud.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,11 @@ import { AdminComponent } from './pages/admin/admin.component';
     SuccessComponent,
     TermsConditionsComponent,
     AdminComponent,
+    AnimalCrudComponent,
+    AdoptionCrudComponent,
+    UserCrudComponent,
+    CrudTableComponent,
+    CrudFormComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +58,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxDatatableModule,
     StoreModule.forRoot({ animals: animalReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],

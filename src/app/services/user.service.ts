@@ -12,6 +12,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   userExists(email: string): Observable<boolean> {
     return this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
       map(users => users.length > 0),
