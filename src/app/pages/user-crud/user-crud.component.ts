@@ -64,6 +64,25 @@ export class UserCrudComponent implements OnInit {
     });
   }
 
+  editUser(user: User): void {
+    this.userModel = { ...user }; // Napuni formu postojećim podacima
+  }
+
+  createOrUpdateUser(): void {
+    if (this.userModel.id) {
+      console.log('Updating user:', this.userModel);
+
+      this.userService.updateUser(this.userModel).subscribe({
+        next: updatedUser => {
+          console.log('User updated:', updatedUser);
+          this.getUsers();
+        },
+        error: err => console.error('Error updating user:', err)
+      });
+    } else {
+      this.createUser(this.userModel);
+    }
+  }
 
   deleteUser(id: number): void {
     console.log('UserCRUDComponent requesting deletion of user with id:', id);

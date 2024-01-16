@@ -4,7 +4,7 @@ import { User } from '../models/user.model';
 import { map, catchError, throwError, tap, Observable, switchMap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/user.state';
-import { addUser, deleteUser, setUsers } from '../store/user.actions';
+import { addUser, deleteUser, setUsers, updateUser } from '../store/user.actions';
 import { selectAllUsers, selectUserById } from '../store/user.selectors';
 
 @Injectable({
@@ -70,6 +70,15 @@ export class UserService {
         console.error(`Error adding user ${user}`, error);
         return throwError(() => new Error(`Error adding user ${user} to store`));
       })
+    );
+  }
+
+  public updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/${user.id}`, user).pipe(
+      tap(updatedUser => {
+        this.store.dispatch(updateUser({ user: updatedUser }));
+      }),
+      catchError(this.handleError)
     );
   }
 

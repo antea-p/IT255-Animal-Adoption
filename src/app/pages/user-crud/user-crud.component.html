@@ -5,11 +5,12 @@
     <ngx-datatable-column name="Password" prop="password"></ngx-datatable-column>
     <ngx-datatable-column name="Actions">
         <ng-template let-row="row" ngx-datatable-cell-template>
-            <button class="btn btn-primary btn-sm">Edit</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteUser(row.id)">Delete</button> </ng-template>
+            <button class="btn btn-primary btn-sm" (click)="editUser(row)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(row.id)">Delete</button>
+        </ng-template>
     </ngx-datatable-column>
 </ngx-datatable>
-<form [formGroup]="newUserForm" (ngSubmit)="createUser(userModel)">
+<form [formGroup]="newUserForm" (ngSubmit)="createOrUpdateUser()">
     <formly-form [model]="userModel" [fields]="userFields"></formly-form>
-    <button type="submit" class="btn btn-success">Add User</button>
+    <button type="submit" class="btn btn-success">Add/Update User</button>
 </form>
