@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { Animal } from '../models/animal';
 import { AppState } from '../store/animal.state';
 import { Store } from '@ngrx/store';
-import { setAnimals } from '../store/animal.actions';
+import { addAnimal, deleteAnimal, setAnimals, updateAnimal } from '../store/animal.actions';
 import { selectAllAnimals, selectAnimalById } from '../store/animal.selectors';
 
 @Injectable({
@@ -55,12 +55,49 @@ export class AnimalService {
         return throwError(() => new Error(`Error selecting selecting animal with ID ${id}from store`));
       })
     )
-    // return this.http.get<Animal>(`${this.apiUrl}/${id}`).pipe(
-    //   catchError(error => {
-    //     console.error(`Error fetching animal with ID ${id}`, error);
-    //     return throwError(() => new Error(`Error fetching animal with ID ${id}`));
-    //   })
-    // );
   }
 
+  public createAnimal(animal: Animal): Observable<Animal> {
+    return this.http.post<Animal>(this.apiUrl, animal).pipe(
+      tap(newAnimal => {
+        this.store.dispatch(addAnimal({ animal: newAnimal }));
+      }),
+      catchError(error => {
+        console.error(`Error adding animal ${animal}`, error);
+        return throwError(() => new Error(`Error adding animal ${animal} to store`));
+      })
+    );
+  }
+
+  public updateAnimal(animal: Animal): Observable<Animal> {
+    return this.http.put<Animal>(`${this.apiUrl}/${animal.id}`, animal).pipe(
+      tap(updatedAnimal => {
+        this.store.dispatch(updateAnimal({ animal: updatedAnimal }));
+      }),
+      catchError(this.handleError)
+    );
+  }
+
+  public deleteAnimal(id: number): void {
+    console.log('Attempting to delete animal with id:', id);
+    this.http.delete(`${this.apiUrl}/${id}`).subscribe({
+      next: () => {
+        console.log('Animal deleted on server, dispatching deleteAnimal to store:', id);
+        this.store.dispatch(deleteAnimal({ id }));
+      },
+      error: (error) => console.error('Error deleting animal:', error),
+      complete: () => console.log('Animal deletion completed')
+    });
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'An unknown error occurred!';
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `Client-side Error: ${error.error.message}`;
+    } else {
+      errorMessage = `Server-side Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(() => new Error(errorMessage));
+  }
 }

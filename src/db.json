@@ -44,6 +44,15 @@
       "speciesName": "lion",
       "description": "Leo, the king of his pride, is majestic and brave.",
       "price": 500
+    },
+    {
+      "id": 6,
+      "name": "Foxy",
+      "image": "assets/img/cutePic.png",
+      "age": "5 months",
+      "speciesName": "Snow fox",
+      "description": "A cutie pie.",
+      "price": 99.9
     }
   ],
   "users": [

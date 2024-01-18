@@ -11,9 +11,6 @@ import { selectAllUsers, selectUserById } from '../store/user.selectors';
   providedIn: 'root'
 })
 export class UserService {
-  addUser(userModel: {}) {
-    throw new Error('Method not implemented.');
-  }
   redirectUrl: string | null = null;
   private apiUrl = 'http://localhost:3000/users';
 

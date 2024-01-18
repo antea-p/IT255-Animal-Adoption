@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialState } from './animal.state';
-import { setAnimals } from './animal.actions';
+import { addAnimal, deleteAnimal, setAnimals, updateAnimal } from './animal.actions';
 
 export const animalReducer = createReducer(
     initialState,
@@ -9,4 +9,16 @@ export const animalReducer = createReducer(
         allAnimals: animals
     })
     ),
+    on(addAnimal, (state, { animal }) => ({
+        ...state,
+        allAnimals: [...state.allAnimals, animal]
+    })),
+    on(updateAnimal, (state, { animal }) => ({
+        ...state,
+        allAnimals: state.allAnimals.map(r => r.id === animal.id ? animal : r)
+    })),
+    on(deleteAnimal, (state, { id }) => ({
+        ...state,
+        allAnimals: state.allAnimals.filter(r => r.id !== id)
+    }))
 );

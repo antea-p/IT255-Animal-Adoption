@@ -31,6 +31,7 @@ export class UserCrudComponent implements OnInit {
       },
       validation: {
         messages: {
+          required: () => `Email is required!`,
           pattern: () => `Email must be a valid email address! (e.g. myname@gmail.com)`,
         },
       },
@@ -45,6 +46,7 @@ export class UserCrudComponent implements OnInit {
       },
       validation: {
         messages: {
+          required: () => `Password is required!`,
           minLength: () => `Password must be at least 6 characters long`,
         },
       },
