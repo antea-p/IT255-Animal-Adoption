@@ -27,7 +27,7 @@ export class AdoptionFormComponent {
 
   ngOnInit(): void {
     this.adoptionForm = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿščćđžŠČĆĐŽ '-]+$/)]], // Updated regex
+      name: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿščćđžŠČĆĐŽ '-]+$/)]],
       surname: ['', [Validators.required, Validators.pattern(/^[A-Za-zÀ-ÖØ-öø-ÿščćđžŠČĆĐŽ '-]+$/)]],
       phone: ['', [Validators.required, Validators.pattern(/^\+?[0-9 ]+$/)]],
       street: ['', [Validators.required, Validators.pattern(/^[A-Za-z0-9À-ÖØ-öø-ÿščćđžŠČĆĐŽ ',.-]+$/)]],
@@ -85,7 +85,6 @@ export class AdoptionFormComponent {
       return;
     }
 
-    // TODO: typing
     // "consent" je nepotreban u kontekstu Adoption objekta
     const adoptionFormValues = { ...this.adoptionForm.value };
     delete adoptionFormValues.consent;

@@ -35,7 +35,7 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.store.select(selectAllUsers).pipe(
       tap(() => {
-        // TODO: temporary
+        // TODO: privremeno
         console.log(`getUsers: selected all users from store`);
       }),
       catchError(error => {
@@ -48,7 +48,7 @@ export class UserService {
   getUserById(id: number): Observable<User | undefined> {
     return this.store.select(selectUserById(id)).pipe(
       tap(() => {
-        // TODO: temporary
+        // TODO: privremeno
         console.log(`getUserById: selected user with id ${id}`);
       }),
       catchError(error => {

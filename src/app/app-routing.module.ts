@@ -73,6 +73,10 @@ const routes: Routes = [
       { path: 'adoptions', component: AdoptionCrudComponent }
     ]
   },
+  {
+    path: '**',
+    component: HomeComponent
+  }
 ];
 
 @NgModule({

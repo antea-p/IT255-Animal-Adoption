@@ -34,7 +34,7 @@ export class AnimalService {
   getAnimals(): Observable<Animal[]> {
     return this.store.select(selectAllAnimals).pipe(
       tap(() => {
-        // TODO: temporary
+        // TODO: privremeno
         console.log(`getAnimals: selected all animals from store`);
       }),
       catchError(error => {
@@ -47,7 +47,7 @@ export class AnimalService {
   getAnimalById(id: number): Observable<Animal | undefined> {
     return this.store.select(selectAnimalById(id)).pipe(
       tap(() => {
-        // TODO: temporary
+        // TODO: privremeno
         console.log(`getAnimalById: selected animal with id ${id}`);
       }),
       catchError(error => {

@@ -1,37 +1,29 @@
-/* Style for the overall card */
 .card {
     margin-bottom: 20px;
-    /* Space between cards */
     text-align: center;
-    /* Center card contents */
 }
 
-/* Style for the image */
 .card-img-top {
     width: 80%;
-    /* Make the image responsive within the card */
+    /* Responzivna slika */
     height: auto;
     aspect-ratio: 1 / 1;
-    /* Adjust the aspect ratio as needed */
     object-fit: contain;
-    /* the entire image is scaled to fit within its content box while preserving its aspect ratio */
+    /* Horizontalno centriranje slike */
     margin-left: auto;
-    /* Center the image horizontally */
     margin-right: auto;
-    /* Center the image horizontally */
 }
 
-/* Ensuring the image and text content take up equal space */
+/* Slika i tekstualni sadržaj zauzimaju podjednaki prostor */
 .card-body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Center content vertically */
+    /* Vertikalno centriranje sadržaja */
     flex: 1;
-    /* Take up the remaining space after the image */
+    /* Zauzmi preostali prostor nakon slike */
 }
 
-/* Style for the card title and price */
 .card-title,
 .card-text {
     margin: 0;
@@ -41,28 +33,17 @@
     justify-content: center;
 }
 
-/* Style for the button */
 .btn-primary {
     background-color: #28a745;
-    /* Bootstrap green color */
     border-color: #28a745;
-    /* Match the border color with background */
     border-radius: 20px;
-    /* Rounded corners for the button */
     padding: 10px 20px;
-    /* Padding inside the button */
     margin-top: 10px;
-    /* Space above the button */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
     transition: background-color 0.3s ease;
-    /* Transition for hover effect */
 }
 
-/* Hover effect for the button */
 .btn-primary:hover {
     background-color: #218838;
-    /* Slightly darker green on hover */
     border-color: #1e7e34;
-    /* Matching darker border color */
 }

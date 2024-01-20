@@ -39,6 +39,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.registerForm.markAllAsTouched();
+
+    if (!this.registerForm.valid) {
+      this.registrationError = "Please review the highlighted fields and provide the necessary details.";
+      return;
+    }
+
     if (this.registerForm.valid) {
       const registerFormValues = {
         ...this.registerForm.value,

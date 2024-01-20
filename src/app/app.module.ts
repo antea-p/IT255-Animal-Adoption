@@ -33,6 +33,7 @@ import { UserCrudComponent } from './pages/user-crud/user-crud.component';
 import { userReducer } from './store/user.reducers';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { adoptionReducer } from './store/adoption.reducers';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
     FormlyModule.forRoot(),
     FormlyBootstrapModule,
     NgxDatatableModule,
-    StoreModule.forRoot({ animals: animalReducer, users: userReducer }),
+    StoreModule.forRoot({ animals: animalReducer, users: userReducer, adoptions: adoptionReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [UserService, AnimalService, AdoptionService],

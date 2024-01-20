@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-crud.component.css']
 })
 export class UserCrudComponent implements OnInit {
-  // TODO: onemogući brisanje trenutnog admina
+  // TODO: onemogući brisanje trenutnog admina; onemogući unos novih nevalidnih redova; validacija; potvrda uspjeha
   users: User[] = [];
   newUserForm = new FormGroup({});
   userModel: User = {
@@ -52,6 +52,7 @@ export class UserCrudComponent implements OnInit {
       },
     }
   ];
+  formErrorMessage: string;
 
 
   constructor(private userService: UserService) { }
@@ -82,7 +83,7 @@ export class UserCrudComponent implements OnInit {
 
   createOrUpdateUser(): void {
     if (!this.newUserForm.valid) {
-      console.log('Form is not valid!');
+      this.formErrorMessage = "Please review the highlighted fields and provide the necessary details.";
       return;
     }
 
@@ -94,7 +95,10 @@ export class UserCrudComponent implements OnInit {
           console.log('User updated:', updatedUser);
           this.getUsers();
         },
-        error: err => console.error('Error updating user:', err)
+        error: (err) => {
+          console.error('Error during adoption submission:', err);
+          this.formErrorMessage = "Failed to submit adoption. Please try again later.";
+        }
       });
     } else {
       this.createUser(this.userModel);

@@ -9,11 +9,12 @@ import { AnimalService } from 'src/app/services/animal.service';
   templateUrl: './animal-crud.component.html',
   styleUrls: ['./animal-crud.component.css']
 })
+// TODO: validacija; potvrda uspjeha
 export class AnimalCrudComponent {
   animals: Animal[] = [];
   newAnimalForm = new FormGroup({});
   animalModel: Animal = {
-    id: 0, // Assuming id is auto-generated and not part of the form
+    id: 0,
     name: '',
     image: '',
     age: '',
@@ -72,6 +73,7 @@ export class AnimalCrudComponent {
       }
     }
   ];
+  formErrorMessage: string;
 
   constructor(private animalService: AnimalService) { }
 
@@ -86,7 +88,6 @@ export class AnimalCrudComponent {
     });
   }
 
-
   createAnimal(newAnimal: Animal): void {
     console.log('Adding animal:', newAnimal);
     this.animalService.createAnimal(newAnimal).subscribe((createdAnimal) => {
@@ -100,8 +101,10 @@ export class AnimalCrudComponent {
   }
 
   createOrUpdateAnimal(): void {
+    this.newAnimalForm.markAsTouched();
+
     if (!this.newAnimalForm.valid) {
-      console.log('Form is not valid!');
+      this.formErrorMessage = "Please review the highlighted fields and provide the necessary details.";
       return;
     }
 
@@ -113,7 +116,10 @@ export class AnimalCrudComponent {
           console.log('Animal updated:', updatedAnimal);
           this.getAnimals();
         },
-        error: err => console.error('Error updating animal:', err)
+        error: err => {
+          console.error('Error updating animal:', err);
+          this.formErrorMessage = "Failed to submit form. Please try again later.";
+        }
       });
     } else {
       this.createAnimal(this.animalModel);

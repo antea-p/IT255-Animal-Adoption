@@ -39,6 +39,13 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
+    this.loginForm.markAllAsTouched();
+
+    if (!this.loginForm.valid) {
+      this.loginErrorMessage = "Please review the highlighted fields and provide the necessary details.";
+      return;
+    }
+
     if (this.loginForm.valid) {
       const user: User = {
         ...this.loginForm.value

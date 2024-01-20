@@ -1,14 +1,11 @@
 .jumbotron {
     border-radius: 15px;
     text-align: center;
-    /* Centering text */
 }
 
 .jumbotron-adoptionData {
     background-color: #dff0d8;
-    /* Light green background */
     color: #3c763d;
-    /* Dark green text */
 }
 
 .list-group-item {

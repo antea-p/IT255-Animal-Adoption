@@ -1,19 +1,163 @@
 {
-  "posts": [
+  "animals": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Luna",
+      "image": "assets/img/otter.png",
+      "age": "2 years",
+      "speciesName": "otter",
+      "description": "Luna loves playing with pebbles and is very sociable.",
+      "price": 200
+    },
+    {
+      "id": 2,
+      "name": "Sandy",
+      "image": "assets/img/fennec.jpeg",
+      "age": "6 months",
+      "speciesName": "fennec",
+      "description": "Sandy has oversized ears and enjoys the desert sunset.",
+      "price": 150.5
+    },
+    {
+      "id": 3,
+      "name": "Jasper",
+      "image": "assets/img/red-panda.png",
+      "age": "3 years",
+      "speciesName": "red panda",
+      "description": "Jasper is curious and loves climbing trees.",
+      "price": 300
+    },
+    {
+      "id": 4,
+      "name": "Misty",
+      "image": "assets/img/snow-leopard.png",
+      "age": "1 year",
+      "speciesName": "snow leopard",
+      "description": "Misty is elusive and loves snowy landscapes.",
+      "price": 250
+    },
+    {
+      "id": 5,
+      "name": "Leo",
+      "image": "assets/img/lion.png",
+      "age": "4 years",
+      "speciesName": "lion",
+      "description": "Leo, the king of his pride, is majestic and brave.",
+      "price": 500
+    },
+    {
+      "id": 6,
+      "name": "Foxy",
+      "image": "assets/img/cutePic.png",
+      "age": "5 months",
+      "speciesName": "Snow fox",
+      "description": "A cutie pie.",
+      "price": 99.9
     }
   ],
-  "comments": [
+  "users": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "email": "testa@gmail.com",
+      "password": "1234aa",
+      "isAdmin": false
+    },
+    {
+      "email": "a@axx.com",
+      "password": "123456",
+      "id": 2,
+      "isAdmin": false
+    },
+    {
+      "email": "meow@meow.com",
+      "password": "testtesta",
+      "isAdmin": true,
+      "id": 8
+    },
+    {
+      "id": 9,
+      "email": "a@xa.com",
+      "password": "666432",
+      "isAdmin": false
+    },
+    {
+      "id": 10,
+      "email": "a@xa.com",
+      "password": "66643",
+      "isAdmin": false
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "adoptions": [
+    {
+      "name": "Adam Christian",
+      "surname": "Wolf",
+      "phone": "3549415",
+      "street": "Cupidatat fugiat co",
+      "city": "Dolorum veritatis ex",
+      "zipcode": "89392",
+      "country": "United Kingdom",
+      "paymentOption": "paypal",
+      "personalNote": "Asperiores ex nobis ",
+      "animalId": 3,
+      "adoptionDateTime": "2024-01-12T18:04:17.434Z",
+      "id": 31
+    },
+    {
+      "name": "Ivan Castillo",
+      "surname": "Morris",
+      "phone": "+19541848",
+      "street": "Anim cum consequat ",
+      "city": "Exercitation ut inci",
+      "zipcode": "31048",
+      "country": "Gibraltar",
+      "paymentOption": "bankTransfer",
+      "personalNote": "Exercitation expedit",
+      "animalId": 3,
+      "adoptionDateTime": "2024-01-19T22:29:36.681Z",
+      "id": 32
+    },
+    {
+      "name": "Danica",
+      "surname": "Gavrilović",
+      "phone": "123 456 789",
+      "street": "Glavni trg",
+      "city": "Beograd",
+      "zipcode": "12345",
+      "country": "Austria",
+      "paymentOption": "creditCard",
+      "personalNote": "love ya panda",
+      "animalId": 3,
+      "adoptionDateTime": "2024-01-20T07:52:33.967Z",
+      "id": 33
+    }
+  ],
+  "usersAdoptions": [
+    {
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "adoptionId": 31,
+      "userId": 1,
+      "id": 31
+    },
+    {
+      "adoptionId": 32,
+      "userId": 8,
+      "id": 32
+    },
+    {
+      "adoptionId": 33,
+      "userId": 8,
+      "id": 33
+    }
+  ]
 }

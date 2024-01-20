@@ -1,1 +1,37 @@
-<p>adoption-crud works!</p>
+<ngx-datatable class="bootstrap" [rows]="adoptions" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'">
+    <ngx-datatable-column name="ID" prop="id" [width]="40"></ngx-datatable-column>
+    <ngx-datatable-column name="Animal ID" prop="animalId" [width]="85"></ngx-datatable-column>
+
+    <ngx-datatable-column name="Adopter">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.name }} {{ row.surname }}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Phone" prop="phone"></ngx-datatable-column>
+
+    <ngx-datatable-column name="Location" [width]="300">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row.street }}, {{ row.zipcode }} {{ row.city }}, {{ row.country }}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Adoption Date" prop="adoptionDateTime">
+        <ng-template let-value="value" ngx-datatable-cell-template>
+            {{ value | date:'medium' }}
+        </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Actions">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+            <button class="btn btn-primary btn-sm" (click)="editAdoption(row)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteAdoption(row.id)">Delete</button>
+        </ng-template>
+    </ngx-datatable-column>
+</ngx-datatable>
+
+<form [formGroup]="newAdoptionForm" (ngSubmit)="createOrUpdateAdoption()">
+    <formly-form [model]="adoptionModel" [fields]="adoptionFields"></formly-form>
+    <button type="submit" class="btn btn-success">Submit Adoption</button>
+</form>
