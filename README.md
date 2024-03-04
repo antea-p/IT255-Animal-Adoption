@@ -1,5 +1,9 @@
 # Animal Adoption
-Animal Adoption is a web application I have developed as part of college project, with Angular 15.2 + Bootstrap + json-server. It features a simple interface where visitors can browse an animal catalog, learn more about each animal, and complete an adoption process. Rather than focus on aesthetical appearance, I chose to implement robust
+Animal Adoption is a web application I have developed as part of college project, with Angular 15.2 + Bootstrap + json-server. It features a simple interface where visitors can browse an animal catalog, learn more about each animal, and complete an adoption process. Rather than focus on aesthetical appearance, I chose to implement robust.
+
+**Disclaimer**:
+The application was done as a college project, and as such, the focus was on implementing core functionality, rather than on robust security. In other words, the passwords were NOT encrypted, hashed, salted, nor otherwise secured during transmission and/or storage. 
+Needless to say, this would not be done in production-ready application.
 
 ## Instructions
 
@@ -20,6 +24,7 @@ ng serve
 6. In order to use most of the functionality, you will need to be logged in. That was a constraint put as part of college's project rules. For credentials, check db.json. 
 
 ## Screenshots
+Below are couple of screenshots showcasing some of pages and features.
 
 **Basic homepage (not logged in)**:
 ![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/003b1c67-ffc6-4ee2-839b-03113b8716b2)
