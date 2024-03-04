@@ -17,12 +17,21 @@ npm install
 ng serve
 ```
 5. Open your web browser and visit http://localhost:4200/. You should now see the Animal Adoption application running.
+6. In order to use most of the functionality, you will need to be logged in. That was a constraint put as part of college's project rules. For credentials, check db.json. 
 
 ## Screenshots
+
+**Basic homepage (not logged in)**:
 ![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/003b1c67-ffc6-4ee2-839b-03113b8716b2)
 
+---
+**Otter's details**:
 ![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/bc875592-28ce-4513-9da2-0a08f824f52b)
 
+---
+**Terms and Conditions (not legally binding)**:
 ![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/ffd1c403-a768-45b6-a93b-57a3a56ddc08) 
 
+---
+**One of Admin tables (available to administrators only)**:
 ![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/6028931d-1d57-42bb-ad16-2c1760ef729e)
