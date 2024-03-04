@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Screenshots
+![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/003b1c67-ffc6-4ee2-839b-03113b8716b2 | Homepage (not logged in))
+
+![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/bc875592-28ce-4513-9da2-0a08f824f52b | Adoption form (logged in as admin))
+
+![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/ffd1c403-a768-45b6-a93b-57a3a56ddc08 | Terms and Conditions) 
+
+![image](https://github.com/antea-p/IT255-Animal-Adoption/assets/147252486/6028931d-1d57-42bb-ad16-2c1760ef729e | One of Admin CRUD tables)
